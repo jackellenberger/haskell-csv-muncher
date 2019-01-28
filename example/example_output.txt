@@ -1,0 +1,51 @@
+
+Skills
+Full Stack Development, Jenkins & Travis Continuous Integration, Pair programming, Test Driven Development, SDK Design, Technical Writing, Rails, Linux system management, Android, Web development, Vim & Tmux, Docker, Kubernetes, Language Design, API design, Website ops, Mentoring
+
+Languages
+(proficient): Ruby, Python, Node, Javascript, Java, C# .Net, PHP, C++, Arduino/C, Bash/Zsh, R, SQL
+(familiar): Objective-C, OpenGL / GLSL, Haskell, SML, Assembly (6502 & x86), Perl, Yacc, awk, sed, G-code
+
+Projects
+
+Personal Projects
+Website: https://github.com/jackellenberger/
+Project: Emojme
+Description: An improvement on my work on emojipacks, with a complete rewrite adding bulk emoji download, upload, syncing, and statistics through a reverse engineered undocumented slack api endpoint. Published both as an npm module and a command line tool, Emojme allows me to keep 16,000 emoji synced across multiple slack instances, and has (I believe) been instrumental in forcing Slack to rewrite their /customize page several times over the last few years.
+Project: Slack Yaml Manager
+Description: A hybrid Slackbot and standalone program to allow Slack users create, edit, and run arbitrary jobs based on a shared yaml schema.
+Project: Emojipacks
+Description: A codebase designed for importing bought emoji to Slack, co-opted to enable people to transfer and sync emoji between instances. Uses phantomjs to interact with Slack's frontend, making it slower and more brittle than Emojme.
+Project: html-to-text
+Description: A highly extensible parser, improved upon to better handle complex tables present in Braintree's developer docs. Used as part of Braintree's federated search parser.
+Project: YamlLineNumbers
+Description: A lightweight library to surface source line numbers in parsed ruby hashes, used extensively internally to help identify and resolve issues with kubernetes configs, static allowlist/blocklists, and programmatic documentation.
+Project: Awesome-o
+Description: A stateless Slackbot for parsing Trello boards, tracking open source issues, and crawling internal servers to provide a daily digest of to-do's on Slack.
+Project: Jabiru Medical
+Description: A Northwestern University incubated medical startup in Chicago, involving an Arduino powered proof of concept device designed to help pregnant women understand stressors on crucial muscle groups.
+Project: Phyllo.apk
+Description: An experiment in location based distributed information sharing, essentially HackerNews where articles spread literally as viruses do, from carrier to carrier based on location and proximity. Includes an Android app and Django backend.
+Project: ellenberger.zone
+Description: A personal website with pages for each of my family members.
+Project: FossFazor
+Description: A 3D printed waveguide for Orthodynamic headphones based off the Audeze model, with designs distributed freely and printed parts sold for a fraction of the real thing.
+Project: MuLtiplication
+Description: A Python interface for radioligand binding assays to determine solubility of novel and published Dopamine D2 receptor-like ligands to be used by the Newman Group at the NIH.
+Project: ShowProdDehydron
+Description: A 3D viewer for displaying Dehydron distribution in proteins, written in Python.
+Project: oGrocer
+Description: An Android app to crowdsource current food price trends and give consumers complete price knowledge about what to buy, where to buy it, and when best to go.
+Project: Gerrymeleon
+Description: A GPGPU project in its infancy to calculate and solve Efficiency Gap problems created by gerrymandering
+
+University Projects
+Language: C
+Projects: PintOS Kernel, TCP Protocol, Ray Marching Algorithm, Moving Average Analysis
+Language: Standard ML
+Projects: FLang Compiler
+Language: Python
+Projects: Optical Character Recognition Model, Protein Data Minining Process, Linguistic Analysis HMM
+Language: C++
+Projects: TEC based Ice 3D printer mod, Convolution Neural Network, Basic Game Engine
+
