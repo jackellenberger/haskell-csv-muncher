@@ -1,6 +1,6 @@
 module Main where
 
-import CSVParser
+import Parser
 import Munge
 import Text.ParserCombinators.Parsec
 

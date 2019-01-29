@@ -1,4 +1,4 @@
-module CSVParser where
+module Parser where
 
 import Text.ParserCombinators.Parsec
 import Text.StringLike
