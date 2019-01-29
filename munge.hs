@@ -8,35 +8,32 @@ import Data.List
 -- |   and turn that data into a nice markdown document
 -- Examples:
 -- >>> munge [["Website;Full Name", "jack.ellenberger.zone","","Jack Ellenberger"], [""]]
--- ["Website: jack.ellenberger.zone","Full Name: Jack Ellenberger"]
+-- ["Website: jack.ellenberger.zone\n","Full Name: Jack Ellenberger\n"]
 -- >>> munge [["Company;_skip;_take;", "Braintree", "Skip me", "I did some stuff"]]
--- ["Company: Braintree","I did some stuff\n"]
+-- ["Company: Braintree\n","I did some stuff\n"]
 munge :: [[String]] -> [String]
 munge parsedLines =
   concat $ map createDoc $ filterLines parsedLines
 
 -- | Take structured, cleaned input and accumulate an md doc
 -- >>> createDoc ["Key", "Value"]
--- ["Key: Value"]
+-- ["Key: Value\n"]
 -- >>> createDoc ["_take;_skip;_take;","take me", "skip me", "take me too"]
 -- ["take me\n","take me too\n"]
 createDoc :: [String] -> [String]
-createDoc (metadata:celldata) = do
-  let metaCell = quotedCell <|> many (noneOf ";\n\r")
-  let metaLine = sepBy metaCell (char ';')
-  let metaParser = endBy metaLine eol
-  case parse metaParser "(unknown)" (metadata ++ "\n\r") of
-       Left err -> return $ show err
-       Right res -> do
-         let meta = concat $ filterLines res
-         let cell = filter keepCell celldata
-         concat $ map templateMetadata $ zip meta cell
+createDoc (metadata:celldata) = case
+  parse (separatedValues ';') "(unknown)" (metadata ++ "\n\r") of
+    Left err -> return $ show err
+    Right res -> do
+      let meta = concat $ filterLines res
+      let cell = filter keepCell celldata
+      concat $ map templateMetadata $ zip meta cell
 
 -- | Given a tuple of key, value, return "Key: Value"
 -- |   or "Value" when key == "_take"
 -- |   or "" when key == "_skip"
 -- >>> templateMetadata ("Key", "Value")
--- ["Key: Value"]
+-- ["Key: Value\n"]
 -- >>> templateMetadata ("_take", "take this string")
 -- ["take this string\n"]
 -- >>> templateMetadata ("_skip", "skip this string")

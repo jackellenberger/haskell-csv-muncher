@@ -3,12 +3,14 @@ module CSVParser where
 import Text.ParserCombinators.Parsec
 import Text.StringLike
 
-{- A CSV file contains 0 or more lines, each of which is terminated
-   by the end-of-line character (eol). -}
-csvFile :: GenParser Char st [[String]]
-csvFile = endBy line eol
-line = sepBy cell (char ',')
-cell = quotedCell <|> many (noneOf ",\n\r")
+-- Taken in part from Real World Haskell
+-- http://book.realworldhaskell.org/read/using-parsec.html
+
+separatedValues :: Char -> GenParser Char st [[String]]
+separatedValues sepChar = do
+  let cell = quotedCell <|> many (noneOf (sepChar:"\n\r"))
+  let line = sepBy cell (char sepChar)
+  endBy line eol
 
 quotedCell =
     do char '"'
@@ -25,6 +27,3 @@ eol =   try (string "\n\r")
     <|> try (string "\n")
     <|> try (string "\r")
     <?> "end of line"
-
-parseCSV :: String -> Either ParseError [[String]]
-parseCSV input = parse csvFile "(unknown)" input
