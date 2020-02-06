@@ -5,10 +5,15 @@ Encode metadata about csv cells by sticking it in the first column as semicolon 
 # Usage
 
 ```bash
+# Setup
+sudo apt install cabal-install # if you haven't already
+cabal install parsec tagsoup
+
 # Test
-$ doctest munge.hs
+doctest munge.hs
+
 # Run
-$ runhaskell main.sh < ~/path/to/file.csv
+runhaskell main.sh < ~/path/to/file.csv
 ```
 
 # Use case
